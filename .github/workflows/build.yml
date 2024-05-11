@@ -1,0 +1,23 @@
+name: Lint, Test & Deploy
+on: push
+jobs:
+  lint-test-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v4
+
+      - name: Install Nodejs
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run lint
+        run: npm run lint
+
+      - name: Run unit tests
+        run: npm run test
+
+      - name: Build the App
+        run: npm run build
